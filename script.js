@@ -4,10 +4,10 @@
 
 
 var arrObj = [
+
     {"person" : "Mark","age":25, "avatar":"https://avataaars.io/?avatarStyle=Circle&topType=ShortHairDreads01&accessoriesType=Blank&hairColor=Auburn&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=Overall&clotheColor=Gray01&eyeType=Close&eyebrowType=UpDown&mouthType=Sad&skinColor=Black"},
     {"person" : "Bill", "age":65, "avatar" : "https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Wayfarers&hairColor=SilverGray&facialHairType=MoustacheMagnum&facialHairColor=Black&clotheType=ShirtCrewNeck&clotheColor=Gray02&eyeType=Surprised&eyebrowType=SadConcernedNatural&mouthType=Default&skinColor=Light"},
     {"person" : "Spencer", "age" : 34, "avatar" : "https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Prescription02&hairColor=Blonde&facialHairType=BeardMedium&facialHairColor=Black&clotheType=CollarSweater&clotheColor=PastelRed&eyeType=Dizzy&eyebrowType=SadConcerned&mouthType=Sad&skinColor=Yellow"}
-
 
 ];
 
@@ -37,5 +37,49 @@ $.each(arrObj, function(index, value)
 {
     //Afficher la propriété age pour chaque objet contenu dans mon tableau
    console.log("affichage age utilisant jQuery ="+value.age);
+
 });
 
+let index = 0;
+
+$("#PersonnePrécé").click(function () {
+
+    if ( index <= 0) {
+
+        index = 0;
+
+    } else {
+
+        index--;
+
+    }
+
+    Afficher ();
+
+});
+
+$("#PersonneSuiva").click(function () {
+
+    if (index >= arrObj.length -1) {
+
+        index = arrObj.length -1;
+
+    } else {
+
+        index++;
+
+    }
+
+    Afficher ();
+
+});
+
+function Afficher () {
+
+    $("#Avatar1").attr("src", arrObj[index].avatar);
+
+    $("#NomAge1").html(arrObj[index].person + "<br> (" + arrObj[index].age + " ans)");
+
+}
+
+Afficher ();
